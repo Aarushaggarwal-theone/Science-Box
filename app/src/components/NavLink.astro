@@ -1,0 +1,10 @@
+---
+export interface Props {
+    text: string;
+    link: string;
+    isActive?: boolean; // Optional prop to indicate active state
+}
+
+const { text, link, isActive} = Astro.props;
+---
+<a href={link} class={`text-lg m-auto ${ isActive ? 'text-josefin-800' : 'text-josefin-600 hover:text-pinky hover:text-xl duration-100'}`}>{text}</a>

@@ -1,0 +1,49 @@
+
+
+@import "tailwindcss";
+
+@theme {
+    --color-yellow: #FFED31;
+    --color-skyede: #00DDFF;
+    --color-santra: #FFB564;
+    --color-emer: #00FF90;
+    --color-viola: #6C4887;
+    --color-pinky: #E2608A;
+
+
+  }
+
+.text-josefin-200 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 200;
+}
+
+.text-josefin-400 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 400;
+}
+
+.text-josefin-600 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 600;
+}
+
+.text-josefin-800 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-weight: 800;
+}
+
+.text-julius-400 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 400;
+}
+
+.text-julius-600 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 600;
+}
+
+.text-julius-800 {
+    font-family: 'Julius Sans One', sans-serif;
+    font-weight: 800;
+}
