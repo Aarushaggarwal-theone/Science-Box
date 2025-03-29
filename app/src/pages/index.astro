@@ -2,9 +2,32 @@
 import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
+import BlogCard from '../components/BlogCard.astro';
+import BlogCardTop from '../components/BlogCardTop.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+
+let posts = [
+    {
+        title: "The Science of Sleep",
+        heroImagePath: "image.png",
+        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+        titleColor: "#FFD700"
+    },
+    {
+        title: "The Science of Sleep",
+        heroImagePath: "image.png",
+        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+        titleColor: "#6B8E23"
+    },
+    {
+        title: "The Science of Sleep",
+        heroImagePath: "image.png",
+        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+        titleColor: "#4682B4"
+    }
+]
 ---
 
 <Layout >
@@ -15,10 +38,30 @@ import Nav from '../components/Nav.astro';
 		<img src="hero-img.svg" alt="The Science Box Logo" class="m-auto" />
 
 	</div>
+
+	</div>
+	<div class="bg-[url(repeat.svg)] h-fit bg-repeat py-12 ">
+		<div class="bg-santra p-4 outline-2 text-center align-middle">
+			<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-widest">MUST READ ARTICLES</div>
+			<div class="text-sm lg:text-xl text-josefin-400 tracking-widest">writing the mysteries of science—blending curiosity, reason, and a touch of overthinking.</div>
+		</div>
+		
+		<div class="mt-2 text-center m-auto lg:flex flex-wrap">
+			<div class="lg:flex cols-3">
+				{posts.map(post => (
+					<div class="mb-6 md:w-2/3 m-4 md:m-auto lg:w-1/3">
+						<BlogCardTop title={post.title} heroImagePath={post.heroImagePath} description={post.description} titleColor={post.titleColor} />
+					</div>
+				))}
+			</div>
+
+		</div>
+		<div class="text-end w-parent py-6 px-12">
+		<a href="/blog" class="p-4 m-auto text-josefin-400 text-2xl bg-pinky border-2 hover:bg-skyede  hover:border-3 duration-200 "><span class="hover:text-viola hover:text-josefin-800">Read More</span></a>
+	</div>
+    
 	</div>
 
-	
 
-	<p class="text-emer">world</p>
 </div>
 </Layout>
