@@ -4,6 +4,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import BlogCard from '../components/BlogCard.astro';
 import BlogCardTop from '../components/BlogCardTop.astro';
+import Infographics from './infographics.astro';
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
@@ -12,23 +13,38 @@ let posts = [
     {
         title: "The Science of Sleep",
         heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#FFD700"
+        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+        titleColor: "#caD700"
+    },
+	{
+		title: "The Science of Sleep",
+		heroImagePath: "image.png",
+		description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+		titleColor: "#AEa6Ca"
     },
     {
         title: "The Science of Sleep",
         heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#6B8E23"
-    },
-    {
-        title: "The Science of Sleep",
-        heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#4682B4"
+        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+        titleColor: "#a64cB4"
     }
 ]
+
+let infographics = [
+	{
+		title: "The Science of Sleep",
+		path: "info-1.jpeg"
+	},{
+		title: "The Science of Sleep",
+		path: "infographic.jpeg"
+	},{
+		title: "The Science of Sleep",
+		path: "image.png"
+	}
+]
 ---
+
+
 
 <Layout >
 
@@ -42,7 +58,7 @@ let posts = [
 	</div>
 	<div class="bg-[url(repeat.svg)] h-fit bg-repeat py-12 ">
 		<div class="bg-santra p-4 outline-2 text-center align-middle">
-			<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-widest">MUST READ ARTICLES</div>
+			<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em] ">MUST READ ARTICLES</div>
 			<div class="text-sm lg:text-xl text-josefin-400 tracking-widest">writing the mysteries of science—blending curiosity, reason, and a touch of overthinking.</div>
 		</div>
 		
@@ -50,18 +66,78 @@ let posts = [
 			<div class="lg:flex cols-3">
 				{posts.map(post => (
 					<div class="mb-6 md:w-2/3 m-4 md:m-auto lg:w-1/3">
-						<BlogCardTop title={post.title} heroImagePath={post.heroImagePath} description={post.description} titleColor={post.titleColor} />
+						<BlogCard title={post.title} heroImagePath={post.heroImagePath} description={post.description} titleColor={post.titleColor} />
 					</div>
 				))}
 			</div>
 
 		</div>
 		<div class="text-end w-parent py-6 px-12">
-		<a href="/blog" class="p-4 m-auto text-josefin-400 text-2xl bg-pinky border-2 hover:bg-skyede  hover:border-3 duration-200 "><span class="hover:text-viola hover:text-josefin-800">Read More</span></a>
+		<a href="/blog" class="p-4 m-auto text-josefin-400 text-2xl bg-pinky border-2 hover:bg-skyede  hover:border-3 duration-200 "><span class=" tracking-widest text-josefin-800">Read More</span></a>
 	</div>
     
 	</div>
 
+	<div class="bg-[url(repeat.svg)] h-fit bg-repeat py-12 ">
+		<div class="bg-yellow p-4 outline-2 text-center align-middle">
+			<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em]">INFOGRAPHICS</div>
+			<div class="text-sm lg:text-xl text-josefin-400 tracking-widest">visual insights, because sometimes pictures explain it better than words!</div>
+		</div>
+		<div class="px-18 pt-12">
+		<div class="mt-2 text-center m-auto  lg:flex flex-wrap">
 
+			{infographics.map(infographic => (
+				<div class="mb-6 md:w-2/4 h-2/5 md:m-auto lg:w-1/3  gap-0.5">
+					<img src={infographic.path} alt={infographic.title} class=" outline-1 mx-2 w-full h-auto shadow-md" />
+				</div>
+			))}
+		</div>
+		</div>
+		<div class="text-end w-parent py-6 px-12">
+		<a href="/infographics" class="py-4 px-6 m-auto text-josefin-400 text-2xl bg-emer border-2 hover:bg-skyede  hover:border-3 duration-200 "><span class="tracking-widest text-josefin-800">See More</span></a>
+	</div>
+    
+	</div>
+
+	<div class="bg-[url(repeat.svg)] h-fit bg-repeat py-12 ">
+		<div class="bg-skyede p-4 outline-2 text-center align-middle">
+			<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em]">ABOUT US</div>
+			<div class="text-sm lg:text-xl text-josefin-400 tracking-widest">we are a team of science enthusiasts, who love to share the wonders of science with the world.</div>
+		</div>
+		<div class="px-18 pt-12">
+		<div class="mt-2 text-center m-auto ">
+			<div class="mb-6 md:w-2/4 h-2/5 md:m-auto lg:w-1/3  gap-0.5">
+				<img src="image.png" alt="The Science Box Team" class=" outline-1 mx-2 w-full h-auto shadow-md" />
+			</div>
+
+			<div class="text-xl/12 text-josefin-400 w-2/3 text-center m-auto p-6">
+				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
+			</div>
+		</div>
+		</div>
+		<div class="text-end w-parent py-6 px-12">
+		<a href="/about" class="py-4 px-6 m-auto text-josefin-400 text-2xl bg-yellow border-2 hover:bg-skyede  hover:border-3 duration-200 "><span class="tracking-widest text-josefin-800">Learn More</span></a>
+    </div>
 </div>
+
+<div class="bg-[url(repeat.svg)] h-fit bg-repeat p-12 pb-16">
+
+	<div class="w-4/7 h-fit bg-emer p-6 outline-2 hover:rotate-1 duration-300 ease-in-out">
+		<div class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.2em] ">Something to Say?</div>
+		<div class="text-xl/12 tracking-widest text-josefin-400 my-6">
+			Got something to say? We’d love to hear it—whether it’s a deep dive or a random thought, send it our way, and we might just publish it.
+		</div>
+		<div class="text-end w-parent py-3">
+		<a href="/blog" class="px-8 py-4 text-josefin-400 text-2xl bg-santra border-2 hover:bg-pinky hover:border-3 duration-200 "><span class=" tracking-[0.2em] text-josefin-800">Contribute</span></a>
+	</div>
+	</div>
+
+	 
+</div>
+
+<div class="w-screen h-fit p-2 bg-pinky text-julius-600 text-center ">
+	<div class="text-2xl">
+	© THE SCIENCE BOX 
+</div>
+
 </Layout>
