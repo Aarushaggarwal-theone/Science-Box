@@ -1,4 +1,3 @@
-
 // @ts-check
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
@@ -8,6 +7,6 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   server: {
-    allowedHosts: ['c5c6-106-215-93-107.ngrok-free.app', 'localhost']
-}
+    allowedHosts: ["c5c6-106-215-93-107.ngrok-free.app", "localhost"],
+  },
 });

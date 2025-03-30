@@ -1,67 +1,74 @@
 ---
-import Layout from '../layouts/Layout.astro'
-import Nav from '../components/Nav.astro'
-import BlogCard from '../components/BlogCard.astro'
-import BlogLength from '../components/BlogLength.astro'
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import BlogCard from "../components/BlogCard.astro";
+import BlogLength from "../components/BlogLength.astro";
 
 let posts = [
-    {
-        title: "The Science of Sleep",
-        heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#FFD700"
-    },
-    {
-        title: "The Science of Sleep",
-        heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#6B8E23"
-    },
-    {
-        title: "The Science of Sleep",
-        heroImagePath: "image.png",
-        description: "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-        titleColor: "#4682B4"
-    }
-]
+  {
+    title: "The Science of Sleep",
+    heroImagePath: "image.png",
+    description:
+      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+    titleColor: "#FFD700",
+  },
+  {
+    title: "The Science of Sleep",
+    heroImagePath: "image.png",
+    description:
+      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+    titleColor: "#6B8E23",
+  },
+  {
+    title: "The Science of Sleep",
+    heroImagePath: "image.png",
+    description:
+      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
+    titleColor: "#4682B4",
+  },
+];
 ---
+
 <Layout>
-
-    <div class="bg-skyede w-full h-full">
+  <div class="bg-skyede w-full h-full">
     <div class="bg-[url(repeat.svg)] bg-repeat h-full">
-        
-    <Nav />
+      <Nav />
 
-    <div class="main py-2 md:py-6">
-
+      <div class="main py-2 md:py-6">
         <div class="flex justify-center mb-4">
-    
-            <h1 class="text-2xl md:text-5xl text-josefin-800">All Articles</h1>
+          <h1 class="text-2xl md:text-5xl text-josefin-800">All Articles</h1>
         </div>
         <div class="flex justify-center mb-4">
-            <p class="md:text-2xl text-center text-josefin-400 text-slate-600 w-screen">interestting information about this world in one place - unexpected, fascinating, and just a little mind-blowing.</p>
+          <p
+            class="md:text-2xl text-center text-josefin-400 text-slate-600 w-screen"
+          >
+            interestting information about this world in one place - unexpected,
+            fascinating, and just a little mind-blowing.
+          </p>
         </div>
 
         <div class="mt-2 text-center w-full m-auto lg:flex flex-wrap">
-            {posts.map(post => (
-                <div class=" m-auto ">
-                    <BlogLength title={post.title} slug={"/infographics"} heroImagePath={post.heroImagePath} description={post.description} titleColor={post.titleColor} />
-                </div>
-            ))}
-
-            
-
-
+          {
+            posts.map((post) => (
+              <div class=" m-auto ">
+                <BlogLength
+                  title={post.title}
+                  slug={"/infographics"}
+                  heroImagePath={post.heroImagePath}
+                  description={post.description}
+                  titleColor={post.titleColor}
+                />
+              </div>
+            ))
+          }
+        </div>
+      </div>
     </div>
+  </div>
 
-</div>
-
-</div>
-</Layout>
-
-<style>
-    .button-shadow:hover{
-     box-shadow: 3px 3px 0px 0px;
+  <style>
+    .button-shadow:hover {
+      box-shadow: 3px 3px 0px 0px;
     }
-    
-</style>
+  </style></Layout
+>
