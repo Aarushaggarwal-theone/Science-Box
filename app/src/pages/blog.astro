@@ -3,30 +3,17 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import BlogCard from "../components/BlogCard.astro";
 import BlogLength from "../components/BlogLength.astro";
+import data from "../content.ts";
 
+console.log(data[0].title);
 let posts = [
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#FFD700",
-  },
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#6B8E23",
-  },
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#4682B4",
-  },
 ];
+for (let i = 0; i < data.length; i++) {
+  posts[i] = data[i];
+  posts[i].coverPath = `http://localhost:1337${posts[i].cover.url}`;
+  console.log(posts[i].coverPath);
+}
+
 ---
 
 <Layout>
@@ -47,14 +34,14 @@ let posts = [
           </p>
         </div>
 
-        <div class="mt-2 text-center w-full m-auto lg:flex flex-wrap">
+        <div class="mt-2 text-center w-full m-auto ">
           {
             posts.map((post) => (
               <div class=" m-auto ">
                 <BlogLength
                   title={post.title}
                   slug={"/infographics"}
-                  heroImagePath={post.heroImagePath}
+                  heroImagePath={post.coverPath}
                   description={post.description}
                   titleColor={post.titleColor}
                 />
