@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import BlogCard from "../components/BlogCard.astro";
 import BlogLength from "../components/BlogLength.astro";
+import ResponsiveNav from "../components/ResponsiveNav.astro";
 
 let posts = [
   {
@@ -27,6 +28,13 @@ let posts = [
     titleColor: "#4682B4",
   },
 ];
+
+let navLinks = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/projects', text: 'Projects' },
+  { href: '/contact', text: 'Contact' },
+];
 ---
 
 <Layout>
@@ -34,9 +42,8 @@ let posts = [
     <div
       class="min-w-screen min-h-screen bg-[url(../assets/repeat.svg)] bg-repeat h-full"
     >
-      <Nav />
-
-      <div class="main py-2 md:py-6">
+      <ResponsiveNav links={navLinks} />
+      <div class="main py-2 mt-12 md:mt-auto md:py-6">
         <div class="flex justify-center mb-4">
           <h1 class="text-2xl md:text-5xl text-josefin-800">
             All Infographics
