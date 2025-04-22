@@ -22,8 +22,8 @@ let posts: any[] = [];
 ---
 
 <Layout>
-  <div class="bg-skyede w-full h-full">
-    <div class="bg-[url(repeat.svg)] bg-repeat h-full">
+  <div class="bg-skyede w-full min-h-screen">
+    <div class="bg-[url(../assets/repeat.svg)] bg-repeat h-full">
       <Nav />
 
       <div class="main py-2 md:py-6">
@@ -39,6 +39,9 @@ let posts: any[] = [];
           </p>
         </div>
 
+
+
+        <p class="text-xl"> Articles Coming Soon....</p>
         <div class="mt-2 text-center w-full m-auto ">
           {
             posts.map((post) => (
