@@ -5,14 +5,19 @@ import BlogCard from "../components/BlogCard.astro";
 import BlogLength from "../components/BlogLength.astro";
 import data from "../content.ts";
 
-console.log(data[0].title);
-let posts = [
-];
-for (let i = 0; i < data.length; i++) {
-  posts[i] = data[i];
-  posts[i].coverPath = `http://localhost:1337${posts[i].cover.url}`;
-  console.log(posts[i].coverPath);
-}
+// console.log(data[0].title);
+
+// let strapiLink ;
+// let posts = [
+// ];
+
+// for (let i = 0; i < data.length; i++) {
+//   posts[i] = data[i];
+//   posts[i].coverPath = `${strapiLink}${posts[i].cover.url}`;
+//   console.log(posts[i].coverPath);
+// }
+
+let posts: any[] = [];
 
 ---
 

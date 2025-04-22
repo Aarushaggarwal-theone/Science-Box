@@ -9,17 +9,44 @@ import data  from "../content.ts";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
+// let posts = [
+
+// ];
+
+// console.log(data[0].title);
+
+// for (let i = 0; i < (data.length < 3 ? data.length : 3); i++) {
+//   posts[i] = data[i];
+//   posts[i].coverPath = `http://localhost:1337${posts[i].cover.url}`;
+//   console.log(posts[i].coverPath);
+// }
+
 let posts = [
-
-];
-
-console.log(data[0].title);
-
-for (let i = 0; i < (data.length < 3 ? data.length : 3); i++) {
-  posts[i] = data[i];
-  posts[i].coverPath = `http://localhost:1337${posts[i].cover.url}`;
-  console.log(posts[i].coverPath);
-}
+  {
+    title: "The Science of Sleep",
+    coverPath: "image.png",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    titleColor: "text-josefin-800",
+    slug: "the-science-of-sleep",
+  },
+  {
+    title: "The Science of Sleep",
+    coverPath: "image.png",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    titleColor: "text-josefin-800",
+    slug: "the-science-of-sleep",
+  },
+  {
+    title: "The Science of Sleep",
+    coverPath: "image.png",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    titleColor: "text-josefin-800",
+    slug: "the-science-of-sleep",
+  },
+]
 let infographics = [
   {
     title: "The Science of Sleep",
@@ -75,7 +102,7 @@ let infographics = [
     </div>
     <div class="text-end w-parent py-6 px-12">
       <a
-        href="/blog"
+        href=""
         class="p-4 m-auto text-josefin-400 text-2xl bg-pinky border-2 hover:bg-skyede hover:border-3 duration-200"
         ><span class="tracking-widest text-josefin-800">Read More</span></a
       >
@@ -140,12 +167,8 @@ let infographics = [
           />
         </div>
 
-        <div class="text-xl/12 text-josefin-400 w-2/3 text-center m-auto p-6">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-          magna aliqua. Ut enim ad minim veniam, quis nostrud
+        <div class="text-2xl/12 text-josefin-400 w-2/3 text-center m-auto p-6">
+          We're a team of curious minds—Iffat, Dheera, Saisha, Amaira and Aarush—on a mission to make science fun, simple, and exciting. From black holes to coffee chemistry, we break down big ideas into bite-sized articles and infographics for everyone to enjoy.
         </div>
       </div>
     </div>
@@ -173,7 +196,7 @@ let infographics = [
       </div>
       <div class="text-end w-parent py-3">
         <a
-          href="/blog"
+          href=""
           class="px-8 py-4 text-josefin-400 text-2xl bg-santra border-2 hover:bg-pinky hover:border-3 duration-200"
           ><span class="tracking-[0.2em] text-josefin-800">Contribute</span></a
         >
