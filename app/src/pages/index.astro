@@ -6,6 +6,8 @@ import BlogCard from "../components/BlogCard.astro";
 import BlogCardTop from "../components/BlogCardTop.astro";
 import Infographics from "./infographics.astro";
 import data  from "../content.ts";
+import SmallNav from "../components/SmallNav.astro";
+import ResponsiveNav from "../components/ResponsiveNav.astro";
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
 // Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 
@@ -20,6 +22,13 @@ import data  from "../content.ts";
 //   posts[i].coverPath = `http://localhost:1337${posts[i].cover.url}`;
 //   console.log(posts[i].coverPath);
 // }
+
+let navLinks = [
+  { href: '/', text: 'Home' },
+  { href: '/about', text: 'About' },
+  { href: '/projects', text: 'Projects' },
+  { href: '/contact', text: 'Contact' },
+];
 
 let posts = [
   {
@@ -65,7 +74,7 @@ let infographics = [
 
 <Layout>
   <div class="bg-viola h-fit">
-    <Nav />
+    <ResponsiveNav links={navLinks}/>
     <div class="w-full h-full text-center align-middle p-14">
       <img src="hero-img.svg" alt="The Science Box Logo" class="m-auto" />
     </div>

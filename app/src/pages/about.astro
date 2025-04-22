@@ -3,8 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Nav from "../components/Nav.astro";
 import BlogCard from "../components/BlogCard.astro";
 import BlogLength from "../components/BlogLength.astro";
+import ResponsiveNav from "../components/ResponsiveNav.astro";
 
+let navLinks = [
+  { href: '/', text: 'Home' },
+  { href: '/blog', text: 'Blog' },
 
+  { href: '/infographics', text: 'Infographics' },
+  { href: '/about', text: 'About' },
+
+];
 
 ---
 
@@ -13,7 +21,7 @@ import BlogLength from "../components/BlogLength.astro";
     <div
       class="min-w-screen min-h-screen bg-[url(../assets/repeat.svg)] bg-repeat h-full"
     >
-      <Nav />
+    <ResponsiveNav links={navLinks}/>
 
       <div class="main py-2 md:py-6">
         <div class="flex justify-center mb-4">

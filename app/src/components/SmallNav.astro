@@ -1,0 +1,174 @@
+---
+interface Props {
+  links: Array<{ href: string; text: string }>;
+}
+
+const { links } = Astro.props;
+---
+
+<nav class="navbar bg-pinky outline">
+  <div class="navbar-container">
+    <div class="logo">
+      <a href="/"><img src="navLogo.svg" alt="The Science Box Logo" class="w-2/5 text-left " /></a>
+    </div>
+    
+    <button class="hamburger" aria-label="Toggle menu">
+      <div class="hamburger-icon">
+        <span class="hamburger-line bg-viola"></span>
+        <span class="hamburger-line bg-viola"></span>
+        <span class="hamburger-line bg-viola"></span>
+      </div>
+    </button>
+
+    <ul class="nav-links bg-viola outline">
+      {links.map((link) => (
+        <li>
+          <a href={link.href} class="nav-link text-josefin-400 text-pinky hover:text-white ">{link.text}</a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    padding: 12px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .navbar-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--color-text);
+    text-decoration: none;
+  }
+
+  .hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .hamburger-icon {
+    position: relative;
+    width: 30px;
+    height: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    transition: all 0.3s ease-in-out;
+    transform-origin: center;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .nav-link:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: block;
+    }
+
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100vh;
+      background-color: #6c4887; /* viola color */
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 0;
+      transition: all 0.3s ease-in-out;
+      box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+      right: 0;
+    }
+
+    .hamburger.active .hamburger-line {
+      background-color: #ff69b4; /* pinky color */
+    }
+
+    .hamburger.active .hamburger-line:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active .hamburger-line:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active .hamburger-line:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-link {
+      font-size: 1.2rem;
+      padding: 1rem 0;
+      display: block;
+      width: 100%;
+      text-align: center;
+      color: #ff69b4; /* pinky color */
+    }
+
+    .nav-link:hover {
+      background-color: rgba(255, 105, 180, 0.1);
+    }
+  }
+</style>
+
+<script>
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  hamburger?.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks?.classList.toggle('active');
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburger?.contains(e.target as Node) && !navLinks?.contains(e.target as Node)) {
+      hamburger?.classList.remove('active');
+      navLinks?.classList.remove('active');
+    }
+  });
+</script>

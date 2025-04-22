@@ -1,0 +1,41 @@
+---
+import Nav from "./Nav.astro";
+import SmallNav from "./SmallNav.astro";
+---
+<div class="nav-container">
+  <div class="desktop-nav">
+    <Nav />
+  </div>
+  <div class="mobile-nav">
+    <SmallNav links={[
+      { href: "/", text: "HOME" },
+      { href: "/blog", text: "BLOG" },
+      { href: "/infographics", text: "INFOGRAPHICS" },
+      { href: "/about", text: "ABOUT" }
+    ]} />
+  </div>
+</div>
+
+<style>
+  .nav-container {
+    width: 100%;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav {
+      display: block;
+    }
+
+    .mobile-nav {
+      display: none;
+    }
+  }
+</style> 
