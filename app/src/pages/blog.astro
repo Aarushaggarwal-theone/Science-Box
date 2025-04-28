@@ -32,6 +32,8 @@ const articles = await getCollection('articles');
                 slug={`/${article.slug}`}
                 description={article.data.description}
                 titleColor={article.data.titleColor || "text-josefin-800"}
+                titleImage={article.data.titleImage}
+                author={article.data.author}
               />
             </div>
           ))}

@@ -7,7 +7,9 @@ const articlesCollection = defineCollection({
     description: z.string().optional(),
     pubDate: z.string().transform((str) => new Date(str)),
     draft: z.boolean().optional().default(false),
-    titleColor: z.string().optional().default("text-josefin-800"),
+    titleColor: z.string().optional().default("#ffcc02"),
+    titleImage: z.string().optional(),
+    author: z.string().optional(),
   }),
 });
 

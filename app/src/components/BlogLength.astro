@@ -3,22 +3,25 @@
 export interface Props {
   title: string;
   slug: string;
-  heroImagePath: string;
-  description: string;
+  description?: string;
   titleColor: string;
+  titleImage?: string;
+  author?: string;
 }
 
-const { slug, title, heroImagePath, description, titleColor } = Astro.props;
+const { slug, title, titleImage, description, titleColor, author } = Astro.props;
 ---
 
 <div class="bg-white border-3 flex text-center mx-12 mt-12">
-  <h2 class="w-[400px]">
-    <img
-      src={heroImagePath}
-      alt=""
-      class="outline-2 hidden lg:inline lg:visible text-center m-auto h-full w-full"
-    />
-  </h2>
+  {titleImage && (
+    <h2 class="w-[400px]">
+      <img
+        src={titleImage}
+        alt={title}
+        class="outline-2 hidden lg:inline lg:visible text-center m-auto h-full w-full"
+      />
+    </h2>
+  )}
   <div class="">
     <div class="max-w-[800px]">
       <div
@@ -27,12 +30,19 @@ const { slug, title, heroImagePath, description, titleColor } = Astro.props;
       >
         {title}
       </div>
+      {author && (
+        <div class="px-6 text-left text-slate-600">
+          <p class="text-lg">By {author}</p>
+        </div>
+      )}
       <div class="px-6 w-parent">
-        <p
-          class="text-lg/12 w-parent text-left text-josefin-400 text-slate-600 m-auto"
-        >
-          {description}
-        </p>
+        {description && (
+          <p
+            class="text-lg/12 w-parent text-left text-josefin-400 text-slate-600 m-auto"
+          >
+            {description}
+          </p>
+        )}
         <div class="text-left group">
           <a href={slug} class="text-lg duration-300 text-josefin-600">
             <img
