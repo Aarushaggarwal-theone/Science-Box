@@ -14,12 +14,12 @@ interface Props {
 }
 
 const { title, description, pubDate, titleColor = "skyede", titleImage, author } = Astro.props;
-console.log(title, description, pubDate, titleColor);
+
 ---
 
 <Layout>
-  <div class={`bg-[${titleColor}] w-full min-h-screen`}>
-    <div class="bg-[url(../assets/repeat.svg)] bg-repeat min-h-screen">
+  <div class={`bg-white w-full min-h-screen`}>
+    <div class="bg-[url(../repeat.svg)] bg-repeat min-h-screen">
       <ResponsiveNav links={navLinks}/>
 
       <div class="main mt-12 md:mt-auto py-2 md:py-6">
@@ -27,17 +27,19 @@ console.log(title, description, pubDate, titleColor);
         <div class="flex justify-center mb-4">
           <h1 class={`text-2xl md:text-5xl text-josefin-800 `}>{title}</h1>
         </div>
-        
         {author && (
+
           <div class="flex justify-center mb-2">
             <p class="text-lg text-slate-600">By {author}</p>
           </div>
+
         )}
         
         {pubDate && (
           <div class="flex justify-center mb-4">
             <time class="text-sm text-slate-400">
-              {formatDate(pubDate)}
+            {formatDate(pubDate)}
+
             </time>
           </div>
         )}

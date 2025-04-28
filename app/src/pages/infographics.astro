@@ -1,46 +1,20 @@
 ---
+import { getCollection } from 'astro:content';
 import Layout from "../layouts/Layout.astro";
-import Nav from "../components/Nav.astro";
-import BlogCard from "../components/BlogCard.astro";
-import BlogLength from "../components/BlogLength.astro";
 import ResponsiveNav from "../components/ResponsiveNav.astro";
+import { navLinks } from "../utils/navLinks";
 
-let posts = [
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#FFD700",
-  },
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#6B8E23",
-  },
-  {
-    title: "The Science of Sleep",
-    heroImagePath: "image.png",
-    description:
-      "The science of sleep is a fascinating field that has been studied for centuries. In this article, we explore the latest research on sleep and how it affects our health and well-being.",
-    titleColor: "#4682B4",
-  },
-];
-
-let navLinks = [
-  { href: '/', text: 'Home' },
-  { href: '/about', text: 'About' },
-  { href: '/projects', text: 'Projects' },
-  { href: '/contact', text: 'Contact' },
-];
+const infographics = await getCollection('infographics');
+console.log(infographics);
+const sortedInfographics = infographics.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 ---
 
 <Layout>
   <div class="bg-white w-full min-h-screen">
     <div
-      class="min-w-screen min-h-screen bg-[url(../assets/repeat.svg)] bg-repeat h-full"
+      class="min-w-screen min-h-screen bg-[url(repeat.svg)] bg-repeat h-full"
     >
       <ResponsiveNav links={navLinks} />
       <div class="main py-2 mt-12 md:mt-auto md:py-6">
@@ -53,9 +27,35 @@ let navLinks = [
           <p
             class="md:text-2xl text-center text-josefin-400 text-slate-600 w-screen"
           >
-            interesting facts, mind blowing statististics and more..... in just
+            interesting facts, mind blowing statistics and more..... in just
             a picture
           </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
+          {sortedInfographics.map((infographic) => (
+            <a href={`/infographics/${infographic.slug}`} class="block">
+              <div class="bg-white  overflow-hidden border-2">
+                <img 
+                  src={`/infographics/${infographic.data.image}`} 
+                  alt={infographic.data.title}
+                  class="w-full h-48 object-cover border-b-2"
+                />
+                <div class="p-6">
+                  <h2 class="text-xl font-bold text-josefin-800 mb-2">
+                    {infographic.data.title}
+                  </h2>
+                  <p class="text-josefin-400 text-sm">
+                    {infographic.data.description}
+                  </p>
+                  <div class="mt-4 text-sm text-josefin-400">
+                    <p>By {infographic.data.author}</p>
+                    <p>{infographic.data.pubDate.toLocaleDateString()}</p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </div>

@@ -35,23 +35,20 @@ const posts = sortedArticles.slice(0, 3).map(article => ({
   pubDate: article.data.pubDate,
   titleColor: article.data.titleColor || "text-josefin-800",
   slug: article.slug,
-  coverPath: "image.png" // You can add a cover image field to your frontmatter if needed
+  coverPath: article.data.titleImage || "image.png"
 }));
 
-let infographics = [
-  {
-    title: "The Science of Sleep",
-    path: "info-1.jpeg",
-  },
-  {
-    title: "The Science of Sleep",
-    path: "infographic.jpeg",
-  },
-  {
-    title: "The Science of Sleep",
-    path: "image.png",
-  },
-];
+// Get all infographics from the content directory and sort by date
+const infographics = await getCollection('infographics');
+const sortedInfographics = infographics.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+const featuredInfographics = sortedInfographics.slice(0, 3).map(infographic => ({
+  title: infographic.data.title,
+  image: `infographics/${infographic.data.image}`,
+  description: infographic.data.description || '',
+  slug: infographic.slug
+}));
 ---
 
 <Layout>
@@ -63,7 +60,7 @@ let infographics = [
           <img src="hero-img.svg" alt="The Science Box Logo" class="m-auto" />
         </div>
       </div>
-      <div class="bg-white bg-[url(../assets/repeat.svg)] h-fit bg-repeat text-center py-12">
+      <div class="bg-white bg-[url(repeat.svg)] h-fit bg-repeat text-center py-12">
         <div class="bg-santra p-4 outline-2 text-center align-middle">
           <div
             class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em]"
@@ -102,7 +99,7 @@ let infographics = [
         </div>
       </div>
 
-      <div class=" bg-white bg-[url(../assets/repeat.svg)] h-fit bg-repeat py-12">
+      <div class=" bg-white bg-[url(repeat.svg)] h-fit bg-repeat py-12">
         <div class="bg-yellow p-4 outline-2 text-center align-middle">
           <div
             class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em]"
@@ -116,17 +113,19 @@ let infographics = [
         </div>
         <div class="px-18 pt-12">
           <div class="mt-2 text-center m-auto lg:flex flex-wrap">
-            {
-              infographics.map((infographic) => (
-                <div class="mb-6 md:w-2/4 h-2/5 md:m-auto lg:w-1/3  gap-0.5">
+            {featuredInfographics.map((infographic) => (
+              <div class="mb-6 md:w-2/4 h-2/5 md:m-auto lg:w-1/3 gap-0.5">
+                <a href={`/infographics/${infographic.slug}`}>
                   <img
-                    src={infographic.path}
+                    src={infographic.image}
                     alt={infographic.title}
-                    class=" outline-1 mx-2 w-full h-auto shadow-md"
+                    class="outline-1 mx-2 w-full h-auto shadow-md hover:shadow-xl transition-shadow duration-300"
                   />
-                </div>
-              ))
-            }
+                  <h3 class="text-lg font-bold text-josefin-800 mt-2">{infographic.title}</h3>
+                  <p class="text-sm text-josefin-400">{infographic.description}</p>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
         <div class="text-end w-parent py-6 px-12">
@@ -138,7 +137,7 @@ let infographics = [
         </div>
       </div>
 
-      <div class="bg-white bg-[url(../assets/repeat.svg)]  h-fit bg-repeat py-12">
+      <div class="bg-white bg-[url(repeat.svg)]  h-fit bg-repeat py-12">
         <div class="bg-skyede p-4 outline-2 text-center align-middle">
           <div
             class="text-2xl lg:text-4xl text-josefin-800 font-bold tracking-[0.3em]"
@@ -174,7 +173,7 @@ let infographics = [
         </div>
       </div>
 
-      <div class="bg-white bg-[url(../assets/repeat.svg)] h-fit bg-repeat p-12 pb-16">
+      <div class="bg-white bg-[url(repeat.svg)] h-fit bg-repeat p-12 pb-16">
         <div
           class=" sm:w-4/7 h-fit bg-emer p-6 outline-2 hover:rotate-1 duration-300 ease-in-out"
         >

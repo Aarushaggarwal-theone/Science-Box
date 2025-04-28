@@ -15,6 +15,20 @@ interface StrapiArticle {
   };
 }
 
+interface StrapiInfographic {
+  id: number;
+  attributes: {
+    title: string;
+    description: string;
+    image: string;
+    author: string;
+    category: string;
+    tags: string[];
+    createdAt: string;
+    slug: string;
+  };
+}
+
 async function fetchArticles(): Promise<StrapiArticle[]> {
   try {
     const response = await axios.get(`${STRAPI_URL}/api/articles?populate=*`);
@@ -25,6 +39,18 @@ async function fetchArticles(): Promise<StrapiArticle[]> {
   }
 }
 
-// Fetch articles and export the data
+async function fetchInfographics(): Promise<StrapiInfographic[]> {
+  try {
+    const response = await axios.get(`${STRAPI_URL}/api/infographics?populate=*`);
+    return response.data.data;
+  } catch (error) {
+    console.error('Error fetching infographics from Strapi:', error);
+    return [];
+  }
+}
+
+// Fetch content and export the data
 const articles = await fetchArticles();
-export default articles;
+const infographics = await fetchInfographics();
+
+export { articles, infographics };
