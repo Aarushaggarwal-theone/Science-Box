@@ -1,14 +1,11 @@
 ---
-// No need to import redirect, use Response.redirect instead
-
 export const prerender = false;
 
 export async function get() {
-    return new Response(null, {
-        status: 302,
-        headers: {
-            Location: '/home'
-        }
-    });
+    return Response.redirect('/home', 302);
 }
 ---
+<script>
+
+window.location.href = '/home';
+</script>
