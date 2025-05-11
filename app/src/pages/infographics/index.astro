@@ -34,7 +34,7 @@ const sortedInfographics = infographics.sort((a, b) =>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto px-4">
           {sortedInfographics.map((infographic) => (
-            <a href={`/infographics/${infographic.slug}`} class="block">
+            <a href={`/infographics/${infographic.slug}`} class="block hover:shadow-xl hover:duration-300">
               <div class="bg-white  overflow-hidden border-2">
                 <img 
                   src={`/infographics/${infographic.data.image}`} 

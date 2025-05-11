@@ -26,7 +26,7 @@ const articles = await getCollection('articles');
 
         <div class="mt-2 text-center w-full m-auto">
           {articles.map((article) => (
-            <div class="m-auto">
+            <div class="m-auto ">
               <BlogLength
                 title={article.data.title}
                 slug={`/${article.slug}`}
@@ -34,6 +34,7 @@ const articles = await getCollection('articles');
                 titleColor={article.data.titleColor || "text-josefin-800"}
                 titleImage={article.data.titleImage}
                 author={article.data.author}
+                
               />
             </div>
           ))}

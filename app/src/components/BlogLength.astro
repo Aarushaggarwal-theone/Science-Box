@@ -12,14 +12,14 @@ export interface Props {
 const { slug, title, titleImage, description, titleColor, author } = Astro.props;
 ---
 
-<div class="bg-white border-3 text-center w-3/4 mt-12 m-auto">
+<div class="bg-white border-3 text-center w-3/4 mt-12 m-auto hover:shadow-xl hover:duration-300">
   <div class="m-auto lg:flex text-center w-fit">
   {titleImage && (
     <h2 class="min-w-[400px] max-w-[400px]">
       <img
         src={titleImage}
         alt={title}
-        class="outline-2 inline visible text-center m-auto h-full w-full object-cover"
+        class="outline-2 inline visible text-center m-auto w-full h-full object-cover"
       />
     </h2>
   )}
