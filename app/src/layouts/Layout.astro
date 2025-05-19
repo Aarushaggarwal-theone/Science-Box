@@ -26,4 +26,24 @@ const { title } = Astro.props;
     
     <slot />
   </body>
+
+  <script>
+    let originalTitle = document.title;
+    let timeout: string | number | NodeJS.Timeout | undefined;
+    let messages = ["We miss you!", "Come back soon!", "Don't leave us!"];
+    let messageIndex = 0;
+
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) {
+      timeout = setInterval(() => {
+        document.title = messages[messageIndex];
+        messageIndex = (messageIndex + 1) % messages.length; // Cycle through messages
+      }, 1000); // Change title every 2 seconds
+      } else {
+      clearInterval(timeout);
+      document.title = originalTitle;
+      }
+    });
+
+  </script>
 </html>
