@@ -5,7 +5,11 @@ import { Astro } from "astro";
 
 interface Props {
   title?: string;
+
+  
 }
+
+import Analytics from '@vercel/analytics/astro'
 
 const { title } = Astro.props;
 ---
@@ -24,6 +28,7 @@ const { title } = Astro.props;
   <body class="min-h-screen min-w-screen">
     
     <slot />
+    <Analytics />
   </body>
 
   <script>
