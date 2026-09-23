@@ -6,6 +6,9 @@ import BlogLength from "../../components/BlogLength.astro";
 import { navLinks } from "../../utils/navLinks";
 
 const articles = await getCollection('articles');
+const sortedArticles = articles.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
 ---
 
 <Layout>
@@ -25,7 +28,7 @@ const articles = await getCollection('articles');
         </div>
 
         <div class="mt-2 text-center w-full m-auto">
-          {articles.map((article) => (
+          {sortedArticles.map((article) => (
             <div class="m-auto ">
               <BlogLength
                 title={article.data.title}
